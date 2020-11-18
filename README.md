@@ -4,7 +4,21 @@
 
 This repository has a minimal working example of using [Sentinel-Hub services](https://www.sentinel-hub.com) together with [BFast monitor](https://bfast.r-forge.r-project.org) to detect forest change. The `Dockerfile` allows users to prepare a docker image with all the needed software to run the `bfast_monitoring_with_SentinelHub.ipynb` Jupyter notebook. This file walks the user through the steps.
 
+### Preparing the docker image
 
+Create the docker image by running
+
+```bash
+docker build -f Dockerfile -t sh-bfast . 
+```
+
+Run the docker
+
+```bash
+docker run -d -p 8080:8888 -v $PWD:/home/eolearner --name bast sh-bfast:latest
+```
+
+The jupyter environment is now set up on your http://localhost:8080. You can open the notebook from this repository directly at http://localhost:8080/notebooks/bfast_monitoring_with_SentinelHub.ipynb.
 
 ### Sentinel-Hub access
 
